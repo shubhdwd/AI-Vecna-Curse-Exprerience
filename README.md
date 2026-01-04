@@ -51,4 +51,99 @@ Users experience a fictional scan that analyzes voice and visual input to genera
 ---
 
 ## 🗂️ Project Structure
+vecna_proj/
+├─ backend/
+│  ├─ index.js
+│  ├─ routes/
+│  ├─ services/
+│  ├─ serviceAccountKey.json (ignored in Git)
+│  └─ package.json
+│
+├─ src/
+│  ├─ components/
+│  ├─ hooks/
+│  ├─ pages/
+│  ├─ types/
+│  └─ index.css
+│
+├─ public/
+├─ package.json
+└─ README.md
+## ⚙️ Running the Project Locally
+
+### 1️⃣ Clone the repository
+
+git clone <your-github-repo-url>
+cd vecna_proj
+## ⚙️ Running the Project Locally
+
+### 2️⃣ Install Frontend Dependencies
+npm install
+
+### 3️⃣ Start the frontend (Vite dev server)
+npm run dev
+
+Frontend starts on: http://localhost:5173
+
+## 🔙 Backend Setup (Local)
+
+cd backend
+npm install
+npm start
+
+Backend runs on: http://localhost:5000
+
+## 🔐 Environment Variables
+
+Create a .env file inside the backend folder:
+PORT=5000
+GEMINI_API_KEY=your_google_ai_studio_key
+Firebase credentials are securely loaded using serviceAccountKey.json
+(this file is excluded from Git via .gitignore).
+
+## 🌍 Deployment
+
+### Recommended Setup
+
+Frontend: Railway or Vercel
+Backend: Railway
+Database: Firebase Firestore
+
+HTTPS deployment is mandatory for camera and microphone access,
+especially on mobile devices.
+
+## 📱 Mobile Performance Optimization
+
+To ensure smooth performance on mobile devices:
+
+Heavy background animations are disabled
+Particle effects are reduced or removed
+Camera resolution is lowered
+Microphone updates are throttled
+
+This ensures a stable, lag-free scanning experience.
+
+## 🏆 Use Cases
+
+College exhibitions
+Hackathons and technical demos
+AI concept showcases
+Interactive UI/UX projects
+Cinematic web experiences
+
+## 🎤 Demo Explanation (For Judges)
+
+“This project is an AI-powered interactive web experience using camera and microphone input, Google AI Studio for AI analysis, Firebase Firestore for persistent leaderboard storage, and a cinematic UI inspired by Stranger Things.”
+
+## 🔒 Security Notes
+
+API keys are never exposed to the frontend
+Firebase service account key is excluded via .gitignore
+All sensitive operations are handled on the backend
+
+## 📜 License
+
+This project is intended for educational and demonstration purposes only.
+
+
 
