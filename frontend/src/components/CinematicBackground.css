@@ -1,0 +1,122 @@
+/* Fog layers - GPU accelerated */
+.fog-layer {
+  position: absolute;
+  inset: 0;
+  will-change: transform, opacity;
+}
+
+.fog-1 {
+  background: radial-gradient(ellipse at 20% 80%, hsl(var(--infected) / 0.12), transparent 50%);
+  animation: fog-drift-1 25s ease-in-out infinite;
+}
+
+.fog-2 {
+  background: radial-gradient(ellipse at 80% 20%, hsl(var(--accent) / 0.08), transparent 50%);
+  animation: fog-drift-2 30s ease-in-out infinite;
+}
+
+@keyframes fog-drift-1 {
+  0%, 100% { transform: translateX(0); opacity: 0.3; }
+  50% { transform: translateX(80px); opacity: 0.5; }
+}
+
+@keyframes fog-drift-2 {
+  0%, 100% { transform: translateX(0); opacity: 0.2; }
+  50% { transform: translateX(-60px); opacity: 0.35; }
+}
+
+/* Floating orbs - reduced and optimized */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(25px);
+  will-change: transform, opacity;
+}
+
+.orb-1 {
+  width: 100px;
+  height: 100px;
+  left: 15%;
+  top: 25%;
+  background: radial-gradient(circle, hsl(var(--accent) / 0.25), transparent 70%);
+  animation: orb-float 12s ease-in-out infinite;
+}
+
+.orb-2 {
+  width: 140px;
+  height: 140px;
+  left: 50%;
+  top: 40%;
+  background: radial-gradient(circle, hsl(var(--infected) / 0.2), transparent 70%);
+  animation: orb-float 15s ease-in-out infinite 2s;
+}
+
+.orb-3 {
+  width: 120px;
+  height: 120px;
+  left: 75%;
+  top: 30%;
+  background: radial-gradient(circle, hsl(var(--accent) / 0.2), transparent 70%);
+  animation: orb-float 18s ease-in-out infinite 4s;
+}
+
+@keyframes orb-float {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-25px) scale(1.1);
+    opacity: 0.5;
+  }
+}
+
+/* Center glow */
+.center-glow {
+  position: absolute;
+  top: 33%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, hsl(var(--primary) / 0.08), transparent 60%);
+  filter: blur(50px);
+  will-change: transform, opacity;
+  animation: pulse-glow 8s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { transform: translateX(-50%) translateY(-50%) scale(1); opacity: 0.2; }
+  50% { transform: translateX(-50%) translateY(-50%) scale(1.2); opacity: 0.35; }
+}
+
+/* Background particles */
+.bg-particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: hsl(var(--accent) / 0.5);
+  box-shadow: 0 0 4px hsl(var(--accent) / 0.5);
+  will-change: transform, opacity;
+  animation: particle-rise linear infinite;
+}
+
+@keyframes particle-rise {
+  0% {
+    transform: translateY(100vh) translateX(0) scale(0);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+    transform: translateY(85vh) scale(1);
+  }
+  85% {
+    opacity: 1;
+    transform: translateY(15vh) translateX(30px) scale(0.8);
+  }
+  100% {
+    transform: translateY(-5vh) translateX(40px) scale(0);
+    opacity: 0;
+  }
+}
